@@ -5,18 +5,25 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+
 /**
- * 这个@RequestRequire 让aop来统一的帮我们进行非空的判断。
+ * RequestRequire:这个@RequestRequire 让aop来统一的帮我们进行非空的判断。
+ * @author zhangxiaoxiang
+ * @date: 2019/05/20
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface RequestRequire {
+
+
+
 
     /**
      * 请求当前接口所需要的参数,多个以小写的逗号隔开
      * @return
      */
      String require() default "";
+
 
     /**
      *传递参数的对象类型

@@ -1,10 +1,18 @@
 package com.demo.paramtest.util;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * 
  * @author
  *
  * @param <T>
  */
+@Data//@Data注解在类上，会为类的所有属性自动生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法。
+@AllArgsConstructor//@NoArgsConstructor, @RequiredArgsConstructor and @AllArgsConstructor
+@NoArgsConstructor
 public class JsonResult<T> {
 
 	private String code;
@@ -19,55 +27,6 @@ public class JsonResult<T> {
 		return "JsonResult [code=" + code + ", message=" + message + ", data=" + data + "]";
 	}
 
-	 public JsonResult() {
-		 	code = SUCCESS;
-	        message = "";
-	    }
 
-	    public JsonResult(T data){
-	    	code = SUCCESS;
-	        this.data = data;
-	    }
-
-	    public JsonResult(Throwable e){
-	    	code = ERROR;
-	        message = e.getMessage();
-	    }
-
-	    public JsonResult(String code, Throwable e){
-	        this.code = code;
-	        this.message = e.getMessage();
-	    }
-
-	    public JsonResult(String code, T data){
-	        this.code = code;
-	        this.data = data;
-	    }
-
-	    
-
-	    public String getCode() {
-			return code;
-		}
-
-		public void setCode(String code) {
-			this.code = code;
-		}
-
-		public String getMessage() {
-	        return message;
-	    }
-
-	    public void setMessage(String message) {
-	        this.message = message;
-	    }
-
-	    public T getData() {
-	        return data;
-	    }
-
-	    public void setData(T data) {
-	        this.data = data;
-	    }
 
 }
