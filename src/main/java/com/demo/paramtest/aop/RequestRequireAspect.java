@@ -105,9 +105,9 @@ public class RequestRequireAspect {
             if (spv != null && StringUtils.isNotBlank(spv.value())) {
                 fieldName = spv.value();
             }
-
+            System.out.println(fieldName+"------====");
             if (fieldObject == null) {
-
+                System.out.println(fieldObject+"------");
                 map.put(fieldName, "该参数不能为空!");
                 jr.setData(map);
                 continue;
@@ -116,6 +116,8 @@ public class RequestRequireAspect {
             // 如果type是类类型，则前面包含"class "，后面跟类名
             if (declaredField.getGenericType().toString().equals("class java.lang.String")) {
                 if (StringUtils.isBlank((String) fieldObject)) {
+                    map.put(fieldName, "该参数不能为空!");
+                    jr.setData(map);
 
                     continue;
 
@@ -131,6 +133,7 @@ public class RequestRequireAspect {
                     return R.error("参数" + fieldName + "不能为空");
                }
             } */
+
 
             System.out.println(fieldName+"是传入了的");
 

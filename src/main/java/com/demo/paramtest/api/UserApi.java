@@ -20,6 +20,7 @@ public class UserApi {
     //接口判断参数
 
     @RequestRequire(require = "id,name,addr", parameter = User.class)
+
     public JsonResult<User> test(@RequestBody User user) {
 
         JsonResult<User> jr = new JsonResult<>();
